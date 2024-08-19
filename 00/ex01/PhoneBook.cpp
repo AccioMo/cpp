@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 19:00:13 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/16 12:29:39 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/08/17 17:48:12 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void PhoneBook::add(void)
 			contacts[i] = contacts[i + 1];
 			contacts[i].set_index(i);
 		}
-		setNumOfContacts(7);
+		set_num_of_contacts(7);
 	}
 	contacts[numOfContacts] = new_contact;
 	contacts[numOfContacts].set_index(numOfContacts);
-	setNumOfContacts(numOfContacts + 1);
+	set_num_of_contacts(numOfContacts + 1);
 	std::cout << "Contact added successfully!" << std::endl;
 };
 
@@ -41,7 +41,8 @@ void PhoneBook::search(void)
 
 	this->print_phonebook();
 	std::cout << "Input a valid index: ";
-	std::getline(std::cin, sindex);
+	if (std::getline(std::cin, sindex))
+		return ;
 	if (sindex.empty() || !strisnumber(sindex))
 	{
 		std::cout << "Invalid index. " << std::endl;
@@ -68,7 +69,7 @@ int PhoneBook::exit(void)
 	return (0);
 };
 
-void	PhoneBook::setNumOfContacts(int value)
+void	PhoneBook::set_num_of_contacts(int value)
 {
 	numOfContacts = value;
 };

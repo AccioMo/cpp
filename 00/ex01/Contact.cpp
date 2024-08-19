@@ -6,13 +6,13 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 19:01:36 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/16 12:53:36 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/08/17 17:49:40 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-void	Contact::show_info(void)
+void Contact::show_info(void)
 {
 	std::cout << "Index: " << index << std::endl;
 	std::cout << "First Name: " << first_name << std::endl;
@@ -22,7 +22,7 @@ void	Contact::show_info(void)
 	std::cout << "Darkest Secret: " << darkest_secret << std::endl;
 }
 
-void	Contact::print_data(void)
+void Contact::print_data(void)
 {
 	std::cout << "|";
 	print_cell(std::to_string(this->index));
@@ -48,7 +48,9 @@ bool Contact::set_first_name(void)
 	std::string value;
 
 	std::cout << "First Name: ";
-	std::getline(std::cin, value);
+
+	if (std::getline(std::cin, value))
+		return (false);
 	if (value.empty())
 	{
 		std::cout << "Field can't be left empty." << std::endl;
@@ -63,7 +65,9 @@ bool Contact::set_last_name(void)
 	std::string value;
 
 	std::cout << "Last Name: ";
-	std::getline(std::cin, value);
+
+	if (std::getline(std::cin, value))
+		return (false);
 	if (value.empty())
 	{
 		std::cout << "Field can't be left empty." << std::endl;
@@ -78,7 +82,9 @@ bool Contact::set_nickname(void)
 	std::string value;
 
 	std::cout << "Nickname: ";
-	std::getline(std::cin, value);
+
+	if (std::getline(std::cin, value))
+		return (false);
 	if (value.empty())
 	{
 		std::cout << "Field can't be left empty." << std::endl;
@@ -95,21 +101,23 @@ bool Contact::set_phone_number(void)
 	for (int i = 3; i >= 0; i--)
 	{
 		std::cout << "Phone Number: ";
-		std::getline(std::cin, value);
+
+		if (std::getline(std::cin, value))
+			break;
 		if (value.empty())
 		{
 			std::cout << "Field can't be left empty." << std::endl;
-			continue ;
+			continue;
 		}
 		else if (!strisnumber(value))
 		{
 			std::cout << "A Phone Number Must be a NUMERIC VALUE. " << std::endl;
-			continue ;
+			continue;
 		}
 		else if (value.length() != 10)
 		{
 			std::cout << "Phone Number must contain of 10 digits. " << std::endl;
-			continue ;
+			continue;
 		}
 		phone_number = value;
 		return (true);
@@ -122,7 +130,8 @@ bool Contact::set_darkest_secret(void)
 	std::string value;
 
 	std::cout << "Darkest Secret: ";
-	std::getline(std::cin, value);
+	if (!std::getline(std::cin, value))
+		return (false);
 	if (value.empty())
 	{
 		std::cout << "Field can't be left empty." << std::endl;

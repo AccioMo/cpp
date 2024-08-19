@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:18:37 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/16 11:35:31 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/08/17 17:42:53 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class PhoneBook {
 		void	add(void);
 		void	search(void);
 		void	print_phonebook(void);
-		void	setNumOfContacts(int value);
+		void	set_num_of_contacts(int value);
 		int		exit(void);
 		PhoneBook();
 		~PhoneBook();

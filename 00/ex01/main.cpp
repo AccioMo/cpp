@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 19:02:00 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/16 12:24:50 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/08/17 18:38:32 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@ int	main(void)
 	PhoneBook	phonebook;
 	std::string	prompt;
 
-	phonebook.setNumOfContacts(0);
+	phonebook.set_num_of_contacts(0);
 	std::cout << "\033[2J\033[H\n		--- Welcome to thePhoneBook --- 		\n" << std::endl;
 	while (true)
 	{
 		std::cout << "Type ADD, SEARCH, or EXIT: ";
-		std::getline(std::cin, prompt);
+		if (!std::getline(std::cin, prompt))
+			break ;
 		if (prompt == "ADD")
 			phonebook.add();
 		else if (prompt == "SEARCH")
@@ -34,3 +35,4 @@ int	main(void)
 	}
 	return (0);
 }
+
