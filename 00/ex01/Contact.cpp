@@ -6,11 +6,12 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 19:01:36 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/17 17:49:40 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/08/19 17:38:15 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include "utils.hpp"
 
 void Contact::show_info(void)
 {
@@ -47,63 +48,89 @@ bool Contact::set_first_name(void)
 {
 	std::string value;
 
-	std::cout << "First Name: ";
-
-	if (std::getline(std::cin, value))
-		return (false);
-	if (value.empty())
+	for (int i = 0; i < 3; i++)
 	{
-		std::cout << "Field can't be left empty." << std::endl;
-		return (false);
+		std::cout << "First Name: ";
+		std::getline(std::cin, value);
+		if (value.empty())
+		{
+			std::cout << "Field can't be left empty." << std::endl;
+			continue ;
+		} else if (!strisalpha(value))
+		{
+			std::cout << "Must contain only alphabetic characters. " << std::endl;
+			continue ;
+		}
+		if (isallspace(value)) {
+			std::cout << "Must contain at least one character. " << std::endl;
+			continue ;
+		}
+		first_name = value;
+		return (true);
 	}
-	first_name = value;
-	return (true);
+	return (false);
 }
 
 bool Contact::set_last_name(void)
 {
 	std::string value;
 
-	std::cout << "Last Name: ";
-
-	if (std::getline(std::cin, value))
-		return (false);
-	if (value.empty())
+	for (int i = 0; i < 3; i++)
 	{
-		std::cout << "Field can't be left empty." << std::endl;
-		return (false);
+		std::cout << "Last Name: ";
+		std::getline(std::cin, value);
+		if (value.empty())
+		{
+			std::cout << "Field can't be left empty." << std::endl;
+			continue ;
+		} else if (!strisalpha(value))
+		{
+			std::cout << "Must contain only alphabetic characters. " << std::endl;
+			continue ;
+		}
+		if (isallspace(value)) {
+			std::cout << "Must contain at least one character. " << std::endl;
+			continue ;
+		}
+		last_name = value;
+		return (true);
 	}
-	last_name = value;
-	return (true);
+	return (false);
 }
 
 bool Contact::set_nickname(void)
 {
 	std::string value;
 
-	std::cout << "Nickname: ";
-
-	if (std::getline(std::cin, value))
-		return (false);
-	if (value.empty())
+	for (int i = 0; i < 3; i++)
 	{
-		std::cout << "Field can't be left empty." << std::endl;
-		return (false);
+		std::cout << "Nickname: ";
+		std::getline(std::cin, value);
+		if (value.empty()) {
+			std::cout << "Field can't be left empty." << std::endl;
+			continue ;
+		} else if (!strisalpha(value)) {
+			std::cout << "Must contain only alphabetic characters. " << std::endl;
+			continue ;
+		}
+		if (isallspace(value)) {
+			std::cout << "Must contain at least one character. " << std::endl;
+			continue ;
+		}
+		nickname = value;
+		return (true);
 	}
-	nickname = value;
-	return (true);
+	return (false);
 }
 
 bool Contact::set_phone_number(void)
 {
 	std::string value;
 
-	for (int i = 3; i >= 0; i--)
+	for (int i = 0; i < 3; i++)
 	{
 		std::cout << "Phone Number: ";
-
-		if (std::getline(std::cin, value))
-			break;
+		std::getline(std::cin, value);
 		if (value.empty())
 		{
 			std::cout << "Field can't be left empty." << std::endl;
@@ -129,16 +156,20 @@ bool Contact::set_darkest_secret(void)
 {
 	std::string value;
 
-	std::cout << "Darkest Secret: ";
-	if (!std::getline(std::cin, value))
-		return (false);
-	if (value.empty())
+	for (int i = 0; i < 3; i++)
 	{
-		std::cout << "Field can't be left empty." << std::endl;
-		return (false);
+		std::cout << "Darkest Secret: ";
+		if (!std::getline(std::cin, value))
+			return (false);
+		if (value.empty())
+		{
+			std::cout << "Field can't be left empty." << std::endl;
+			continue ;
+		}
+		darkest_secret = value;
+		return (true);
 	}
-	darkest_secret = value;
-	return (true);
+	return (false);
 }
 
 bool Contact::init(void)

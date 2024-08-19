@@ -6,11 +6,12 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 19:00:13 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/17 17:48:12 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/08/19 17:03:02 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <iomanip>
 
 void PhoneBook::add(void)
 {
@@ -40,10 +41,21 @@ void PhoneBook::search(void)
 	int			index;
 
 	this->print_phonebook();
+	if (numOfContacts == 0)
+	{
+		std::cout << "|" << std::string((45 - 22) / 2, ' ') << "No contacts available." << std::string((45 - 22) / 2 - 1, ' ') << "|" << std::endl;
+		std::cout << "―――――――――――\
+―――――――――――\
+―――――――――――\
+――――――――――――" << std::endl;
+	}
 	std::cout << "Input a valid index: ";
-	if (std::getline(std::cin, sindex))
-		return ;
+	std::getline(std::cin, sindex);
 	if (sindex.empty() || !strisnumber(sindex))
+	{
+		std::cout << "Index must be a number. " << std::endl;
+		return ;
+	} else if (sindex.length() > 1 || sindex > "7" || sindex < "0")
 	{
 		std::cout << "Invalid index. " << std::endl;
 		return ;

@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 11:21:25 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/16 11:39:17 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/08/19 17:38:44 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,27 @@ bool strisnumber(std::string str)
 {
 	for (std::string::const_iterator strit = str.begin(); strit != str.end(); strit++)
 	{
-		if (*strit < '0' || *strit > '9')
+		if (isnumber(*strit) == 0 || *strit == ' ')
+			return (false);
+	}
+	return (true);
+}
+
+bool strisalpha(std::string str)
+{
+	for (std::string::const_iterator strit = str.begin(); strit != str.end(); strit++)
+	{
+		if (!isalpha(*strit) && !isspace(*strit))
+			return (false);
+	}
+	return (true);
+}
+
+bool isallspace(std::string str)
+{
+	for (std::string::const_iterator strit = str.begin(); strit != str.end(); strit++)
+	{
+		if (!isspace(*strit))
 			return (false);
 	}
 	return (true);
