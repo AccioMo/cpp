@@ -8,7 +8,7 @@ NAME = megaphone
 all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)
 
 $(NAME): $(OBJ_FILES) $(HEADERS)
 	$(CLANG) $(FLAGS) $(OBJ_FILES) -o $(NAME)

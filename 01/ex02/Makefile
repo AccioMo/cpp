@@ -1,15 +1,14 @@
 CLANG = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-HEADERS = Account.hpp
-FILES = Account.cpp tests.cpp
+FILES = main.cpp
 OBJ_DIR = obj/
 OBJ_FILES = $(addprefix $(OBJ_DIR), $(FILES:.cpp=.opp))
-NAME = GlobalBankstersRecovery
+NAME = HiBrain
 
 all: $(OBJ_DIR) $(NAME)
 
-$(OBJ_DIR): $(OBJ_DIR)
-	@mkdir -p $(OBJ_DIR)
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 $(NAME): $(OBJ_FILES) $(HEADERS)
 	$(CLANG) $(FLAGS) $(OBJ_FILES) -o $(NAME)

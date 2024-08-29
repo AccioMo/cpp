@@ -1,14 +1,14 @@
 CLANG = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-HEADERS = Account.hpp
-FILES = Account.cpp tests.cpp
+HEADERS = Zombie.hpp
+FILES = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJ_DIR = obj/
 OBJ_FILES = $(addprefix $(OBJ_DIR), $(FILES:.cpp=.opp))
-NAME = GlobalBankstersRecovery
+NAME = Brainz
 
 all: $(OBJ_DIR) $(NAME)
 
-$(OBJ_DIR): $(OBJ_DIR)
+$(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 $(NAME): $(OBJ_FILES) $(HEADERS)
@@ -23,4 +23,4 @@ clean:
 fclean: clean
 	rm -f $(OBJ_FILES)
 
-.PHONY: all clean fclean re
+.PHONY: all $(OBJ_DIR) clean fclean re
