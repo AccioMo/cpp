@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   replaceString.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 20:26:09 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/30 16:22:41 by mzeggaf          ###   ########.fr       */
+/*   Created: 2024/08/30 15:15:17 by mzeggaf           #+#    #+#             */
+/*   Updated: 2024/08/30 15:44:17 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
-#include "Weapon.hpp"
+#include "replaceString.hpp"
 
-int main()
+std::string	replaceString(std::string str, std::string s1, std::string s2)
 {
-	Weapon club = Weapon("crude spiked club");
-	HumanA bob("Bob", club);
-	bob.attack();
-	club.setType("some other type of club");
-	bob.attack();
+	size_t	match;
 
-	Weapon club = Weapon("crude spiked club");
-	HumanB jim("Jim");
-	jim.setWeapon(club);
-	jim.attack();
-	club.setType("some other type of club");
-	jim.attack();
-    return (0);
+	match = str.find(s1);
+	while (match != std::string::npos)
+	{
+		str.erase(match, s1.length());
+		str.insert(match, s2);
+		match = str.find(s1, match);
+	}
+	return (str);
 }
