@@ -1,9 +1,10 @@
 CLANG = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-FILES = megaphone.cpp
+HEADERS = Harl.hpp
+FILES = main.cpp Harl.cpp
 OBJ_DIR = obj/
 OBJ_FILES = $(addprefix $(OBJ_DIR), $(FILES:.cpp=.opp))
-NAME = megaphone
+NAME = harlFilter
 
 all: $(OBJ_DIR) $(NAME)
 
