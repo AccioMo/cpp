@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:35:30 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/22 19:44:15 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/09/24 13:39:55 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,6 @@ class Zombie
 		Zombie(std::string name);
 		~Zombie();
 };
+
+Zombie*	newZombie( std::string name );
+void	randomChump( std::string name );

@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 20:45:16 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/30 13:26:23 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/09/24 14:11:38 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void		HumanB::setWeapon( Weapon &new_weapon ) {
 	weapon = &new_weapon;
 }
 
-HumanB::HumanB( std::string birth_name ) {
-	name = birth_name;
-}
+HumanB::HumanB( std::string birth_name ) : name(birth_name), weapon(NULL) {}
 
 HumanB::~HumanB( void ) { }

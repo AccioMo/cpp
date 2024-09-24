@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:39:54 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/22 19:44:45 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/09/24 13:36:05 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	Zombie::announce( void )
 Zombie::Zombie( std::string new_name )
 {
 	name = new_name;
-	std::cout << "New zombie has joined the chat." << std::endl;
+	std::cout << name << " has joined the chat." << std::endl;
 }
 
 Zombie::~Zombie( void )

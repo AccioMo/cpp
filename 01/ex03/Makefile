@@ -4,7 +4,7 @@ HEADERS = Weapon.hpp HumanA.hpp HumanB.hpp
 FILES = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJ_DIR = obj/
 OBJ_FILES = $(addprefix $(OBJ_DIR), $(FILES:.cpp=.opp))
-NAME = MoarBrainz
+NAME = Violence
 
 all: $(OBJ_DIR) $(NAME)
 

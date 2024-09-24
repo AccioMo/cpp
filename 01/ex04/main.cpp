@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 13:41:58 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/08/31 22:02:12 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/09/24 14:29:30 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,17 @@ int	main(int ac, char **av)
 	std::ofstream	ofile(ofname);
 	if (!ofile) {
 		std::cerr << "error: unable to open file for writing" << std::endl;
+		ifile.close();
 		return (1);
 	}
 	std::string line;
+	std::string text;
 	while (std::getline(ifile, line)) {
-		ofile << replaceString(line, to_rep, rep_with);
 		if (!ifile.eof())
-			ofile << std::endl;
+			line += "\n";
+		text += line;
 	}
+	ofile << replaceString(text, to_rep, rep_with);
 	ifile.close();
 	ofile.close();
 	return (0);
