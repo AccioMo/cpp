@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:56:09 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/09/23 14:46:14 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/09/24 15:41:24 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(int ac, char ** av)
 {
-	if (ac < 2)
+	if (ac != 2)
 		return (0);
 	Harl harl;
 	

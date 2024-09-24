@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:11:05 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/09/23 14:45:43 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/09/24 15:40:50 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,5 @@ class Harl {
 	public:
 		void complain( std::string level );
 };
-
-typedef void (Harl::*HarlFct)( void );
 
 #endif
