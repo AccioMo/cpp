@@ -6,11 +6,14 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 13:22:26 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/09/25 19:46:57 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/09/26 11:03:33 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ostream>
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
+# include <ostream>
 
 class Fixed
 {
@@ -31,3 +34,5 @@ class Fixed
 };
 
 std::ostream &operator<<(std::ostream &os, const Fixed &original);
+
+#endif

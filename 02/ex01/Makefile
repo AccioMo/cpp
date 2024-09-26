@@ -23,4 +23,4 @@ clean:
 fclean: clean
 	rm -f $(OBJ_FILES)
 
-.PHONY: all $(OBJ_DIR) clean fclean re
+.PHONY: all clean fclean re

@@ -1,10 +1,10 @@
 CLANG = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-HEADERS = Fixed.hpp
-FILES = main.cpp Fixed.cpp
+HEADERS = Fixed.hpp Point.hpp
+FILES = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJ_DIR = obj/
 OBJ_FILES = $(addprefix $(OBJ_DIR), $(FILES:.cpp=.opp))
-NAME = Fixed
+NAME = BSP
 
 all: $(OBJ_DIR) $(NAME)
 

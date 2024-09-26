@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 13:22:26 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/09/26 16:40:46 by mzeggaf          ###   ########.fr       */
+/*   Created: 2024/09/26 10:45:58 by mzeggaf           #+#    #+#             */
+/*   Updated: 2024/09/26 15:29:40 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef POINT_HPP
+# define POINT_HPP
 
-class Fixed
+#include "Fixed.hpp"
+
+class Point
 {
 	private:
-		int					_raw_bits;
-		static const int	_fractional_bits;
+		const Fixed	x;
+		const Fixed	y;
 	public:
-		Fixed( void );
-		Fixed( const Fixed &object );
-		~Fixed( void );
-		Fixed	&operator=(const Fixed &original);
-		int		getRawBits( void ) const;
-		void	setRawBits( int const raw );
+		Point( void );
+		Point( const float init_x, const float init_y );
+		Point( const Point &point );
+		Point	operator=( Point &point );
+		~Point( void );
+
+		Fixed getX( void ) const;
+		Fixed getY( void ) const;
 };
 
 #endif
