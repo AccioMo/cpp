@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 12:11:05 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/09/24 15:52:58 by mzeggaf          ###   ########.fr       */
+/*   Created: 2024/09/28 04:40:11 by mzeggaf           #+#    #+#             */
+/*   Updated: 2024/09/28 10:50:04 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-#include <string>
+#include "ClapTrap.hpp"
 
-class Harl {
+#include <iostream>
+
+class ScavTrap : ClapTrap
+{
 	private:
-		void debug( void );
-		void info( void );
-		void warning( void );
-		void error( void );
-	public:
-		void complain( std::string level );
+			
 };
-
-typedef void (Harl::*HarlFdd)( void );
 
 #endif

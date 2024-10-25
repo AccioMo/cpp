@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:13:37 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/09/22 13:01:06 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/09/24 15:48:39 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void Harl::error( void ) {
 
 void Harl::complain( std::string level ) {
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	HarlFct fcts[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	HarlFdd fcts[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	for (int i = 0; i < 4; i++) {
 		if (level == levels[i]) {
 			(this->*fcts[i])();
