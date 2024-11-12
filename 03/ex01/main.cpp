@@ -6,19 +6,19 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 00:50:07 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/09/28 04:38:26 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/11/12 20:31:50 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap clap("Player");
-	ClapTrap clap_villain(clap);
-	ClapTrap clap_clone;
+	ScavTrap clap("Player");
+	ScavTrap clap_villain(clap);
+	ScavTrap clap_clone;
 	
 	clap_clone = clap;
 	clap_clone.setName("Clone");
@@ -45,6 +45,7 @@ int	main(void)
 	clap.attack("NPC 9");
 	clap.takeDamage(10);
 	clap.attack("BOSS NPC");
+	clap.takeDamage(1000);
 	
 	return (0);
 }

@@ -1,10 +1,10 @@
 CLANG = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-HEADERS = ScavTrap.hpp ClapTrap.hpp
-FILES = main.cpp ScavTrap.cpp ClapTrap.cpp
+HEADERS = FragTrap.hpp ClapTrap.hpp
+FILES = main.cpp FragTrap.cpp ClapTrap.cpp
 OBJ_DIR = obj/
 OBJ_FILES = $(addprefix $(OBJ_DIR), $(FILES:.cpp=.opp))
-NAME = ScavTrap
+NAME = FragTrap
 
 all: $(OBJ_DIR) $(NAME)
 
