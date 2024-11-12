@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 19:09:32 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/12 21:47:51 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/11/12 21:48:34 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <iostream>
 #include <string>
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
 		ScavTrap( void );

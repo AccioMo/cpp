@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 19:09:32 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/12 21:47:51 by mzeggaf          ###   ########.fr       */
+/*   Created: 2024/11/12 21:33:22 by mzeggaf           #+#    #+#             */
+/*   Updated: 2024/11/12 21:47:56 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
-#include "ClapTrap.hpp"
-
-#include <iostream>
 #include <string>
 
-class ScavTrap : public ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 	public:
-		ScavTrap( void );
-		ScavTrap( std::string name );
-		ScavTrap( const ScavTrap &scav );
-		ScavTrap &operator=( const ScavTrap &scav );
-		~ScavTrap();
-
-		void	attack( const std::string &target );
-		void	guardGate( void ) const;
+		void	whoAmI( void );
 };
 
 #endif
