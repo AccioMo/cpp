@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 00:31:31 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/12 20:17:27 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/11/13 14:08:35 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 ClapTrap::ClapTrap(void) : _name("nobody"), _hitpoints(10), _energy_points(10), _attack_damage(0)
 {
-	std::cout << "An unnamed ClapTrap was made." << std::endl;
+	std::cout << "An unnamed ClapTrap was born." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(10), _energy_points(10), _attack_damage(0)
