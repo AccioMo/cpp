@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:06:00 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/13 14:23:09 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/11/16 19:33:41 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 DiamondTrap::DiamondTrap( void )
 {
+	_name = "nobody";
+	ClapTrap::_name = "nobody_clap_name";
 	std::cout << "An unnamed DiamondTrap appeared. " << std::endl;
 }
 

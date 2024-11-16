@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 00:50:07 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/13 14:20:45 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/11/16 19:31:28 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(void)
 {
-	DiamondTrap clap("diamond");
+	DiamondTrap clap;
 	DiamondTrap clap_villain(clap);
 	DiamondTrap clap_clone;
 	
@@ -29,10 +29,10 @@ int	main(void)
 	clap_villain.setName("Villain");
 	clap_villain.setAttackDamage(7);
 
-	clap.attack("NPC 0");
-	clap.attack("NPC 1");
-	clap.attack("NPC 2");
+	clap.attack("NPC");
 	clap.highFivesGuys();
+	clap.whoAmI();
+	clap.setName("mo");
 	clap.whoAmI();
 	clap.attack("BOSS NPC");
 	clap.takeDamage(1000);
