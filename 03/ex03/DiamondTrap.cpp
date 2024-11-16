@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:06:00 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/16 19:33:41 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/11/16 21:07:14 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ DiamondTrap::DiamondTrap( std::string name )
 	std::cout << "A DiamondTrap named " << _name << " appeared. " << std::endl;
 }
 
-DiamondTrap &DiamondTrap::operator=( const DiamondTrap &scav )
+DiamondTrap &DiamondTrap::operator=( const DiamondTrap &diamond )
 {
-	_name = scav._name;
-	_hitpoints = scav._hitpoints;
-	_energy_points = scav._energy_points;
-	_attack_damage = scav._attack_damage;
+	_name = diamond._name;
+	_hitpoints = diamond._hitpoints;
+	_energy_points = diamond._energy_points;
+	_attack_damage = diamond._attack_damage;
 	std::cout << "DiamondTrap " << _name << " was assigned." << std::endl;
 	return (*this);
 }
@@ -51,15 +51,7 @@ DiamondTrap::~DiamondTrap()
 
 void DiamondTrap::attack( const std::string &target )
 {
-	if (_hitpoints <= 0) {
-		std::cout << "DiamondTrap is already dead" << std::endl;
-		return ;
-	} else if (_energy_points <= 0) {
-		std::cout << "DiamondTrap has no energy points" << std::endl;
-		return ;
-	}
-	_energy_points -= 1;
-	std::cout << "DiamondTrap " << _name << " attacks " << target << ", causing " << _attack_damage << " points of damage" << std::endl;
+	return ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI( void )
