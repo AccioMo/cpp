@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 21:33:22 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/22 17:06:28 by mzeggaf          ###   ########.fr       */
+/*   Created: 2024/12/07 22:08:21 by mzeggaf           #+#    #+#             */
+/*   Updated: 2024/12/09 23:23:31 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-#define DIAMONDTRAP_HPP
-
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
 
 #include <string>
 
-class DiamondTrap : public ScavTrap, public FragTrap
-{
-	private:
-		std::string _name;
-	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string name );
-		DiamondTrap	&operator=( const DiamondTrap &clap );
-		~DiamondTrap();
+#include "AMateria.hpp"
 
-		void	attack( const std::string &target );
-		void	whoAmI( void );
+#define DEBUG 0
+
+class IMateriaSource {
+	public:
+		virtual ~IMateriaSource() {};
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
 #endif

@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 21:33:22 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/22 17:06:28 by mzeggaf          ###   ########.fr       */
+/*   Created: 2024/12/07 06:14:37 by mzeggaf           #+#    #+#             */
+/*   Updated: 2024/12/10 05:26:44 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-#define DIAMONDTRAP_HPP
+#ifndef CURE_HPP
+#define CURE_HPP
 
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include <iostream>
 
-#include <string>
+#include "AMateria.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap
-{
-	private:
-		std::string _name;
+#define DEBUG 0
+
+class Cure : public AMateria {
 	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string name );
-		DiamondTrap	&operator=( const DiamondTrap &clap );
-		~DiamondTrap();
+		Cure( void );
+		Cure( const Cure &cure );
+		Cure	&operator=( const Cure &cure );
+		~Cure();
 
-		void	attack( const std::string &target );
-		void	whoAmI( void );
+		AMateria* clone() const;
+		void use(ICharacter &target);
 };
 
 #endif

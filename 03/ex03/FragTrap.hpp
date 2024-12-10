@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 04:40:11 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/12 21:40:10 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/11/22 17:06:42 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class FragTrap : virtual public ClapTrap
 		FragTrap( std::string name );
 		FragTrap( const FragTrap &scav );
 		FragTrap &operator=( const FragTrap &scav );
-		~FragTrap();
+		virtual	~FragTrap();
 
 		void	attack( const std::string &target );
 		void	highFivesGuys( void ) const;

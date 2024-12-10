@@ -5,40 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 00:50:07 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/22 18:41:06 by mzeggaf          ###   ########.fr       */
+/*   Created: 2024/11/22 16:04:53 by mzeggaf           #+#    #+#             */
+/*   Updated: 2024/12/10 04:04:40 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#include "DiamondTrap.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-int	main(void)
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+
+int main()
 {
-	DiamondTrap clap;
-	DiamondTrap clap_villain(clap);
-	DiamondTrap clap_clone;
+	const Animal* d = new Dog();
+	const Animal* c = new Cat();
 
-	clap_clone = clap;
-	clap_clone.setName("Clone");
-	clap_clone.takeDamage(10);
+	delete c;
+	delete d;
 
-	clap.setAttackDamage(5);
+	const Animal *a[16];
+
+	for (int i = 0; i < 8; i++)
+		a[i] = new Dog();
+
+	for (int i = 8; i < 16; i++)
+		a[i] = new Cat();
 	
-	clap_villain.setName("Villain");
-	clap_villain.setAttackDamage(7);
+	for (int i = 0; i < 16; i++)
+		delete a[i];
 
-	clap.attack("NPC");
-	clap.highFivesGuys();
-	clap.whoAmI();
-	clap.setName("mo");
-	clap.whoAmI();
-	clap.attack("BOSS NPC");
-	clap.takeDamage(1000);
-
-	ClapTrap *clap2 = new ScavTrap("ScavTrap");
-	clap2->attack("kj");
-
-	return (0);
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
+	
+	return 0;
 }

@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 21:33:22 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/22 17:06:28 by mzeggaf          ###   ########.fr       */
+/*   Created: 2024/12/04 02:29:30 by mzeggaf           #+#    #+#             */
+/*   Updated: 2024/12/04 02:39:33 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-#define DIAMONDTRAP_HPP
+#ifndef BRAIN_H
+# define BRAIN_H
 
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include <iostream>
 
-#include <string>
-
-class DiamondTrap : public ScavTrap, public FragTrap
+class Brain
 {
 	private:
-		std::string _name;
+		std::string	ideas[100];
 	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string name );
-		DiamondTrap	&operator=( const DiamondTrap &clap );
-		~DiamondTrap();
-
-		void	attack( const std::string &target );
-		void	whoAmI( void );
+		Brain(void);
+		Brain(const Brain &brain);
+		~Brain();
+		Brain &operator=(const Brain &brain);
 };
 
 #endif

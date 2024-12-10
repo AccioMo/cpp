@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 21:33:22 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/11/22 17:06:28 by mzeggaf          ###   ########.fr       */
+/*   Created: 2024/12/07 06:05:00 by mzeggaf           #+#    #+#             */
+/*   Updated: 2024/12/09 23:22:55 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-#define DIAMONDTRAP_HPP
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
-
+#include <iostream>
 #include <string>
 
-class DiamondTrap : public ScavTrap, public FragTrap
-{
-	private:
-		std::string _name;
-	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string name );
-		DiamondTrap	&operator=( const DiamondTrap &clap );
-		~DiamondTrap();
+#include "ICharacter.hpp"
 
-		void	attack( const std::string &target );
-		void	whoAmI( void );
+#define DEBUG 0
+
+class AMateria
+{
+	protected:
+		std::string	type;
+	public:
+		AMateria( void );
+		AMateria(std::string const &type);
+		AMateria( AMateria &amateria );
+		AMateria	&operator=( AMateria &amateria );
+		virtual ~AMateria();
+
+		std::string const &getType( void ) const;
+		virtual AMateria *clone( void ) const = 0;
+		virtual void use( ICharacter &target );
 };
 
 #endif
