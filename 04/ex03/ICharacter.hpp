@@ -6,18 +6,16 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:07:53 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/12/09 23:23:24 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2025/01/09 18:23:30 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 
-#include <iostream>
+#include <string>
 
-#include "AMateria.hpp"
-
-#define DEBUG 0
+#define DEBUG 1
 
 class AMateria;
 

@@ -6,18 +6,13 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 16:04:53 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/12/10 04:04:40 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2024/12/12 10:03:14 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <iostream>
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int main()
 {
@@ -26,6 +21,11 @@ int main()
 
 	delete c;
 	delete d;
+
+	Dog *h = new Dog();
+	Dog	g = *h;
+	g.makeSound();
+	delete h;
 
 	const Animal *a[16];
 

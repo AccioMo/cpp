@@ -6,11 +6,13 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:18:23 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/12/09 23:25:53 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2025/01/09 18:23:53 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+
+#include <iostream>
 
 Cure::Cure( void ) : AMateria("cure")
 {

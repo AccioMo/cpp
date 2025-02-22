@@ -6,16 +6,18 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:45:54 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/12/10 05:34:16 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2025/01/09 20:00:41 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
+#include <iostream>
+
 Character::Character( void )
 {
 	for (int i = 0; i < 4; i++)
-		inventory[i] = NULL;
+		inventory[i] = nullptr;
 	if (DEBUG)
 		std::cout << "new character spawned" << std::endl;
 }
@@ -24,14 +26,24 @@ Character::Character( std::string new_name )
 {
 	name = new_name;
 	for (int i = 0; i < 4; i++)
-		inventory[i] = NULL;
+		inventory[i] = nullptr;
 	if (DEBUG)
 		std::cout << "new character " << name << " spawned" << std::endl;
 }
 
 Character::Character( Character &character )
 {
-	*this = character;
+	name = character.name;
+	// for (int i = 0 ; i < 4; i++)
+	// 	if (inventory[i])
+	// 		delete inventory[i];
+	for (int i = 0 ; i < 4; i++)
+	{
+		if (character.inventory[i])
+			inventory[i] = character.inventory[i]->clone();
+		else
+			inventory[i] = nullptr;
+	}
 	if (DEBUG)
 		std::cout << "new character copied" << std::endl;
 }
@@ -40,11 +52,14 @@ Character	&Character::operator=( Character &character )
 {
 	name = character.name;
 	for (int i = 0 ; i < 4; i++)
+		if (inventory[i])
+			delete inventory[i];
+	for (int i = 0 ; i < 4; i++)
 	{
 		if (character.inventory[i])
 			inventory[i] = character.inventory[i]->clone();
 		else
-			inventory[i] = NULL;
+			inventory[i] = nullptr;
 	}
 	if (DEBUG)
 		std::cout << "new character assigned" << std::endl;
@@ -69,7 +84,7 @@ void Character::equip(AMateria *m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (inventory[i] == NULL)
+		if (inventory[i] == nullptr)
 		{
 			inventory[i] = m;
 			return ;
@@ -84,7 +99,7 @@ void Character::unequip(int idx)
 		std::cout << "invalid index" << std::endl;
 		return ;
 	}
-	inventory[idx] = NULL;
+	inventory[idx] = nullptr;
 }
 
 void Character::use(int idx, ICharacter &target)

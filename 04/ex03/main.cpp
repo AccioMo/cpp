@@ -6,7 +6,7 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:03:43 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/12/10 05:34:58 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2025/01/09 20:04:32 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,28 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
+#include <iostream>
+
+void	f()
+{
+	system("leaks Materia");
+}
+
 int main()
 {
-	IMateriaSource *src = new MateriaSource();
-	Ice		*ice = new Ice();
+	atexit(f);
+	IMateriaSource	*src = new MateriaSource();
+	Ice				*ice = new Ice();
 	std::cout << ice->getType() << std::endl;
 	delete ice;
-	
-	Cure	*cure = new Cure();
-	std::cout << cure->getType() << std::endl;
-	delete cure;
+
+	Character *c = new Character();
+	Character d = *c;
+	delete c;
+
+	// Cure	*cure = new Cure();
+	// std::cout << cure->getType() << std::endl;
+	// delete cure;
 
 	std::cout << "---------------" << std::endl;
 
@@ -40,8 +52,8 @@ int main()
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	// tmp = src->createMateria("cure");
+	// me->equip(tmp);
 
 	ICharacter *bob = new Character("bob");
 	me->use(0, *bob);
@@ -88,6 +100,7 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+	delete tmp;
 	
 	return 0;
 }

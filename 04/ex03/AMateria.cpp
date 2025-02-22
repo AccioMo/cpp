@@ -6,11 +6,13 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:29:07 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/12/09 23:21:21 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2025/01/09 18:23:46 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+
+#include <iostream>
 
 AMateria::AMateria( void )
 {

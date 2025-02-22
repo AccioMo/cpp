@@ -6,11 +6,13 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:34:18 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/12/09 23:22:10 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2025/01/09 18:23:57 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+
+#include <iostream>
 
 Ice::Ice( void ) : AMateria("ice")
 {

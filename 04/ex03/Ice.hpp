@@ -6,18 +6,16 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:10:34 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/12/09 23:23:17 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2025/01/09 18:22:48 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICE_HPP
 #define ICE_HPP
 
-#include <iostream>
-
 #include "AMateria.hpp"
 
-#define DEBUG 0
+#define DEBUG 1
 
 class Ice : public AMateria {
 	public:

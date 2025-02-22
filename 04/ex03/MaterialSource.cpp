@@ -6,11 +6,13 @@
 /*   By: mzeggaf <mzeggaf@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 22:30:54 by mzeggaf           #+#    #+#             */
-/*   Updated: 2024/12/10 05:34:25 by mzeggaf          ###   ########.fr       */
+/*   Updated: 2025/01/09 18:24:02 by mzeggaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+
+#include <iostream>
 
 MateriaSource::MateriaSource( void )
 {
@@ -32,7 +34,7 @@ MateriaSource	&MateriaSource::operator=( const MateriaSource &materia )
 	for (int i = 0 ; i < 4; i++)
 	{
 		if (materia.templates[i])
-			templates[i] = materia.templates[i]->clone();	
+			templates[i] = materia.templates[i]->clone();
 		else
 			templates[i] = NULL;
 	}

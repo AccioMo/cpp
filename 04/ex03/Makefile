@@ -1,5 +1,5 @@
 CLANG = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
+FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow# -g -fsanitize=address
 HEADERS = AMateria.hpp Character.hpp Cure.hpp ICharacter.hpp IMateriaSource.hpp Ice.hpp MateriaSource.hpp
 FILES = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MaterialSource.cpp main.cpp
 OBJ_DIR = obj/

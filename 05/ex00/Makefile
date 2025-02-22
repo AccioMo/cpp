@@ -1,11 +1,13 @@
 CLANG = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -g -fsanitize=address
-HEADERS = Animal.hpp Dog.hpp Cat.hpp WrongCat.hpp WrongAnimal.hpp Brain.hpp
-FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
+FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
+DEBUG = -g -fsanitize=address
+HEADERS = Bureaucrat.hpp
+FILES = main.cpp Bureaucrat.cpp
 OBJ_DIR = obj/
 OBJ_FILES = $(addprefix $(OBJ_DIR), $(FILES:.cpp=.opp))
-NAME = Brain
+NAME = Bureaucrat
 
+all: FLAGS += $(DEBUG)
 all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
@@ -18,10 +20,10 @@ $(OBJ_DIR)%.opp: %.cpp $(HEADERS)
 	$(CLANG) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(NAME)
+	rm -f $(OBJ_FILES)
 
 fclean: clean
-	rm -f $(OBJ_FILES)
+	rm -f $(NAME)
 
 re: fclean all
 
