@@ -1,8 +1,8 @@
 CLANG = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 DEBUG = -g -fsanitize=address
-HEADERS = Bureaucrat.hpp Form.hpp
-FILES = main.cpp Bureaucrat.cpp Form.cpp
+HEADERS = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
+FILES = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJ_DIR = obj/
 OBJ_FILES = $(addprefix $(OBJ_DIR), $(FILES:.cpp=.opp))
 NAME = Bureaucrat
@@ -26,6 +26,7 @@ fclean: clean
 	rm -f $(NAME)
 
 fcelan: fclean
+fclena: fclean
 
 re: fclean all
 

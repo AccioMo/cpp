@@ -4,9 +4,9 @@
 
 # include <iostream>
 # include <exception>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 	private:
@@ -40,7 +40,8 @@ class Bureaucrat {
 		};
 
 		/* other */
-		void	signForm( Form &form ) const;
+		void	signForm( AForm &form ) const;
+		void	executeForm( AForm const &form ) const;
 
 };
 
