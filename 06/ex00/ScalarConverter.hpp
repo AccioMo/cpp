@@ -8,12 +8,13 @@
 
 class ScalarConverter
 {
-    public:
+    private:
         ScalarConverter();
-        ~ScalarConverter();
+        ~ScalarConverter(); 
         ScalarConverter(const ScalarConverter &src);
         ScalarConverter &operator=(const ScalarConverter &rhs);
 
+    public:
         static void convert(const std::string &literal);
 };
 

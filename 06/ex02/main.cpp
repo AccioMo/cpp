@@ -1,14 +1,13 @@
 
 #include "Base.hpp"
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <exception>
-
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
 
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <exception>
 
 Base *generate(void) {
     std::srand(static_cast<unsigned int>(std::time(0)));
@@ -67,6 +66,6 @@ int main() {
     identify(basePtr);
     identify(*basePtr);
 
-    delete basePtr; // Clean up dynamically allocated memory
-    return 0;
+    delete basePtr;
+    return (0);
 }
