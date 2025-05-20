@@ -24,7 +24,7 @@ int	RPN::evaluate(const std::string &expression) {
 		if (token.empty()) {
 			continue;
 		} else {
-			if (isdigit(token[0])) {
+			if (token.length() == 1 && isdigit(token[0])) {
 				stack.push(token[0] - '0');
 			} else if (token.length() == 2) {
 				if (token[0] == '-') {
