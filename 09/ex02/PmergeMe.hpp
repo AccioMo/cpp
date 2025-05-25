@@ -23,7 +23,7 @@ class PmergeMe {
 		static double sort(std::deque<int> &deq);
 
 		static std::vector<int> fordJohnsonSort(std::vector<int> vec);
-		static void fordJohnsonSort(std::deque<int> &deq);
+		static std::deque<int> fordJohnsonSort(std::deque<int> &deq);
 
 		static std::vector<int> generateJacobsthal(int max_n);
 		static std::vector<int> generateInsertionOrder(int max_n);

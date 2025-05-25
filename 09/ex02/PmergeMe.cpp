@@ -33,11 +33,13 @@ std::vector<int> PmergeMe::generateInsertionOrder(int max_n) {
 
 	std::vector<int> jacobsthal = generateJacobsthal(max_n);
 
+	/*
 	std::cout << "jacobsthal sequence: ";
 	for (size_t i = 0; i < jacobsthal.size(); i++) {
 		std::cout << jacobsthal[i] << " ";
 	}
 	std::cout << std::endl;
+	*/
 
 	std::vector<int> order;
 
@@ -78,6 +80,11 @@ std::vector<int> PmergeMe::fordJohnsonSort(std::vector<int> vec) {
 		}
 	}
 
+	std::vector<int>	main_chain = fordJohnsonSort(larger_chain);
+	
+	std::vector<int>	iorder = generateInsertionOrder(smaller_chain.size());
+
+	/*
 	std::cout << "larger_chain: ";
 	for (size_t i = 0; i < larger_chain.size(); i++) {
 		std::cout << larger_chain[i] << " ";
@@ -90,22 +97,21 @@ std::vector<int> PmergeMe::fordJohnsonSort(std::vector<int> vec) {
 	}
 	std::cout << std::endl;
 
-	std::vector<int>	main_chain = fordJohnsonSort(larger_chain);
 
 	std::cout << "sorted_larger_chain: ";
 	for (size_t i = 0; i < main_chain.size(); i++) {
 		std::cout << main_chain[i] << " ";
 	}
 	std::cout << std::endl;
+	*/
 
-	std::vector<int>	iorder = generateInsertionOrder(smaller_chain.size());
 
+	/*
 	std::cout << "iorder: ";
 	for (size_t i = 0; i < iorder.size(); i++) {
 		std::cout << iorder[i] << " ";
 	}
 	std::cout << std::endl;
-	/*
 	*/
 
 	for (size_t i = 0; i < iorder.size(); i++) {
@@ -134,47 +140,85 @@ std::vector<int> PmergeMe::fordJohnsonSort(std::vector<int> vec) {
 	return (main_chain);
 }
 
-void PmergeMe::fordJohnsonSort(std::deque<int> &deq) {
-	if (deq.size() <= 1) return;
-	
-	std::deque<std::pair<int, int>> pairs;
-	bool hasOdd = deq.size() % 2 == 1;
-	int oddElement = hasOdd ? deq.back() : 0;
-	
-	// Create pairs and sort within pairs
-	for (size_t i = 0; i < deq.size() - (hasOdd ? 1 : 0); i += 2) {
-		if (deq[i] > deq[i + 1]) {
-			pairs.push_back({deq[i], deq[i + 1]});
+std::deque<int> PmergeMe::fordJohnsonSort(std::deque<int> &deq) {
+
+	if (deq.size() <= 1)
+		return (deq);
+
+	std::deque<int>	larger_chain;
+	std::deque<int>	smaller_chain;
+
+	for (size_t i = 0; i < deq.size() - 1; i += 2) {
+
+		std::pair<int, int>	pair(deq[i], deq[i + 1]);
+		
+		if (pair.first > pair.second) {
+			larger_chain.push_back(pair.first);
+			smaller_chain.push_back(pair.second);
 		} else {
-			pairs.push_back({deq[i + 1], deq[i]});
+			larger_chain.push_back(pair.second);
+			smaller_chain.push_back(pair.first);
 		}
 	}
-	
-	// Sort pairs by their larger elements
-	std::sort(pairs.begin(), pairs.end());
-	
-	// Create main chain and pending elements
-	std::deque<int> mainChain;
-	std::deque<int> pending;
-	
-	for (const auto& pair : pairs) {
-		mainChain.push_back(pair.first);
-		pending.push_back(pair.second);
+
+	std::deque<int>	main_chain = fordJohnsonSort(larger_chain);
+
+	std::vector<int>	iorder = generateInsertionOrder(smaller_chain.size());
+
+	/*
+	std::cout << "larger_chain: ";
+	for (size_t i = 0; i < larger_chain.size(); i++) {
+		std::cout << larger_chain[i] << " ";
 	}
-	
-	// Insert pending elements using binary insertion
-	for (int element : pending) {
-		auto pos = std::lower_bound(mainChain.begin(), mainChain.end(), element);
-		mainChain.insert(pos, element);
+	std::cout << std::endl;
+
+	std::cout << "smaller_chain: ";
+	for (size_t i = 0; i < smaller_chain.size(); i++) {
+		std::cout << smaller_chain[i] << " ";
 	}
-	
-	// Insert odd element if exists
-	if (hasOdd) {
-		auto pos = std::lower_bound(mainChain.begin(), mainChain.end(), oddElement);
-		mainChain.insert(pos, oddElement);
+	std::cout << std::endl;
+
+
+	std::cout << "sorted_larger_chain: ";
+	for (size_t i = 0; i < main_chain.size(); i++) {
+		std::cout << main_chain[i] << " ";
 	}
-	
-	deq = mainChain;
+	std::cout << std::endl;
+	*/
+
+
+	/*
+	std::cout << "iorder: ";
+	for (size_t i = 0; i < iorder.size(); i++) {
+		std::cout << iorder[i] << " ";
+	}
+	std::cout << std::endl;
+	*/
+
+	for (size_t i = 0; i < iorder.size(); i++) {
+		size_t index = iorder[i];
+		if (index < smaller_chain.size()) {
+			int element = smaller_chain[index];
+			std::deque<int>::iterator	pos = std::lower_bound(main_chain.begin(), main_chain.end(), element);
+			if (pos != main_chain.end()) {
+				main_chain.insert(pos, element);
+			} else {
+				main_chain.push_back(element);
+			}
+		}
+	}
+
+	if (deq.size() % 2 == 1) {
+		int last_element = deq.back();
+		std::deque<int>::iterator pos = std::lower_bound(main_chain.begin(), main_chain.end(), last_element);
+		if (pos != main_chain.end()) {
+			main_chain.insert(pos, last_element);
+		} else {
+			main_chain.push_back(last_element);
+		}
+	}
+
+	return (main_chain);
 }
 
 double PmergeMe::sort(std::vector<int> &vec) {
@@ -203,7 +247,7 @@ double PmergeMe::sort(std::deque<int> &deq) {
 	timeval start, end;
 	gettimeofday(&start, NULL);
 
-	fordJohnsonSort(deq);
+	deq = fordJohnsonSort(deq);
 
 	gettimeofday(&end, NULL);
 	long seconds = end.tv_sec - start.tv_sec;
