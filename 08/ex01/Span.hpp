@@ -33,12 +33,9 @@ class Span {
 			virtual const char* what() const throw();
 		};
 		
-		template<typename Titerator>
-		void addRange(Titerator begin, Titerator end) {
-			while (begin != end) {
-				addNumber(*begin);
-				begin++;
-			}
+		template<typename T>
+		void addRange(T begin, T end) {
+			_numbers.insert(_numbers.end(), begin, end);
 		}
 };
 
